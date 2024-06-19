@@ -95,7 +95,7 @@ Ditt uppdrag är att skapa ett enkelt REST API för att hantera en boklista. API
 
 ## Tips och verktyg
 
-- Använd ett backend-ramverk som **Flask** (Python), **Express** (Node.js) eller **Spring Boot** (Java) för att skapa ditt API.
+- Använd ett backend-ramverk som **Flask** (Python), **Express** (Node.js), **Gin** (Go) eller **Quarkus** (Java) för att skapa ditt API.
 - Använd en enkel in-memory datastruktur (som en lista eller en dictionary) för att lagra böckerna.
 - Se till att hantera fel, som att försöka hämta eller uppdatera en bok som inte finns.
 
