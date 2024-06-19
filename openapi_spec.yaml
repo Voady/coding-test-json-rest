@@ -1,0 +1,113 @@
+openapi: 3.0.0
+info:
+  title: Bokhantering API
+  version: 1.0.0
+  description: "Ett enkelt REST API f\xF6r hantering av en boklista"
+paths:
+  /books:
+    get:
+      summary: "H\xE4mta alla b\xF6cker"
+      responses:
+        '200':
+          description: "En lista \xF6ver alla b\xF6cker"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Book'
+    post:
+      summary: "L\xE4gg till en ny bok"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Book'
+      responses:
+        '201':
+          description: Boken har lagts till
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Book'
+  /books/{id}:
+    get:
+      summary: "H\xE4mta en bok baserat p\xE5 ID"
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: En enskild bok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Book'
+        '404':
+          description: Boken hittades inte
+    put:
+      summary: "Uppdatera en bok baserat p\xE5 ID"
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Book'
+      responses:
+        '200':
+          description: Boken har uppdaterats
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Book'
+        '404':
+          description: Boken hittades inte
+    delete:
+      summary: "Ta bort en bok baserat p\xE5 ID"
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Boken har tagits bort
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                example:
+                  message: Book deleted successfully
+        '404':
+          description: Boken hittades inte
+components:
+  schemas:
+    Book:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        title:
+          type: string
+          example: To Kill a Mockingbird
+        author:
+          type: string
+          example: Harper Lee
+        published_year:
+          type: integer
+          example: 1960
