@@ -2,14 +2,14 @@ openapi: 3.0.0
 info:
   title: Bokhantering API
   version: 1.0.0
-  description: "Ett enkelt REST API f\xF6r hantering av en boklista"
+  description: "Ett enkelt REST API för hantering av en boklista"
 paths:
   /books:
     get:
-      summary: "H\xE4mta alla b\xF6cker"
+      summary: "Hämta alla böcker"
       responses:
         '200':
-          description: "En lista \xF6ver alla b\xF6cker"
+          description: "En lista över alla böcker"
           content:
             application/json:
               schema:
@@ -17,7 +17,7 @@ paths:
                 items:
                   $ref: '#/components/schemas/Book'
     post:
-      summary: "L\xE4gg till en ny bok"
+      summary: "Lägg till en ny bok"
       requestBody:
         required: true
         content:
@@ -33,7 +33,7 @@ paths:
                 $ref: '#/components/schemas/Book'
   /books/{id}:
     get:
-      summary: "H\xE4mta en bok baserat p\xE5 ID"
+      summary: "Hämta en bok baserat på ID"
       parameters:
       - name: id
         in: path
@@ -50,7 +50,7 @@ paths:
         '404':
           description: Boken hittades inte
     put:
-      summary: "Uppdatera en bok baserat p\xE5 ID"
+      summary: "Uppdatera en bok baserat på ID"
       parameters:
       - name: id
         in: path
@@ -73,7 +73,7 @@ paths:
         '404':
           description: Boken hittades inte
     delete:
-      summary: "Ta bort en bok baserat p\xE5 ID"
+      summary: "Ta bort en bok baserat på ID"
       parameters:
       - name: id
         in: path
