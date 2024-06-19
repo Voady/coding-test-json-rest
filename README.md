@@ -108,6 +108,6 @@ Ditt uppdrag är att skapa ett enkelt REST API för att hantera en boklista. API
 
 ## OpenAPI Specifikation
 
-För en detaljerad OpenAPI-specifikation, se [openapi_spec.json](./openapi_spec.json).
+För en detaljerad OpenAPI-specifikation, se [openapi_spec.yaml](./openapi_spec.yaml).
 
 Lycka till!
